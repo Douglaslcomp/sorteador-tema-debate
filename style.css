@@ -1,0 +1,91 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #171717;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.45; }
+
+.aplicacao { display: flex; min-height: 100vh; }
+.menu-lateral {
+    width: 325px;
+    flex-shrink: 0;
+    padding: 28px 24px;
+    border-right: 1px solid #e5e5e5;
+    background: #f7f7f7;
+}
+
+.etiqueta { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #666; }
+.marca h1 { font-size: 26px; margin: 14px 0 8px; }
+.marca p { font-size: 14px; line-height: 1.5; color: #666; margin: 0 0 30px; }
+
+#formTema { display: flex; flex-direction: column; gap: 10px; }
+#formTema label { font-size: 14px; font-weight: 700; }
+#campoTema {
+    padding: 14px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    outline-color: #444;
+}
+
+.botao-escuro, .botao-claro {
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    font-weight: 600;
+}
+.botao-escuro { background: #222; color: white; }
+.botao-escuro:hover:not(:disabled) { background: #444; }
+.botao-claro { background: #fff; color: #222; }
+.botao-claro:hover:not(:disabled) { background: #eee; }
+
+.mensagem { min-height: 19px; font-size: 13px; color: #a22; margin: 10px 0 14px; }
+.cabecalho-lista { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #ddd; padding-top: 22px; }
+.cabecalho-lista h2 { font-size: 15px; margin: 0; }
+#totalTemas { background: #e5e5e5; border-radius: 20px; padding: 4px 9px; font-size: 12px; }
+.lista-gerenciamento { list-style: none; padding: 0; margin: 18px 0; display: flex; flex-direction: column; gap: 8px; }
+.item-tema { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 11px 10px; background: #fff; border: 1px solid #e1e1e1; border-radius: 5px; }
+.nome-tema { overflow-wrap: anywhere; font-size: 14px; }
+.item-tema.sorteado .nome-tema { color: #999; text-decoration: line-through; }
+.remover { border: 0; border-radius: 4px; color: #9b2626; background: #f8e9e9; padding: 6px 9px; flex-shrink: 0; }
+.remover:hover { background: #f3d9d9; }
+
+.conteudo { min-width: 0; flex: 1; padding: 30px clamp(22px, 5vw, 80px); display: flex; flex-direction: column; }
+.topo { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.topo h2 { font-size: clamp(18px, 2vw, 24px); margin: 8px 0 0; font-weight: 600; }
+
+.painel-sorteio { flex: 1; min-height: 390px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 17px; }
+.legenda { font-size: 13px; color: #777; letter-spacing: 2px; font-weight: 700; margin: 0; }
+#resultado { font-size: clamp(36px, 5.5vw, 80px); line-height: 1.14; margin: 0; max-width: 100%; overflow-wrap: anywhere; }
+#resultado.aparecer { animation: aparecer 0.35s ease-out; }
+#avisoResultado { color: #777; font-size: 15px; margin: 0; }
+.acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+.acoes button { min-width: 160px; }
+.contagem { color: #777; font-size: 14px; margin: 0; }
+
+.painel-temas { border-top: 1px solid #e5e5e5; padding-top: 22px; padding-bottom: 15px; }
+.titulo-temas { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px; }
+.titulo-temas h2 { margin: 0; font-size: 17px; }
+.titulo-temas span { font-size: 13px; color: #777; }
+.etiquetas-temas { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+.etiqueta-tema { padding: 9px 13px; background: #f6f6f6; border: 1px solid #dedede; border-radius: 4px; font-size: 14px; overflow-wrap: anywhere; }
+.etiqueta-tema.sorteado { color: #999; background: #eee; text-decoration: line-through; }
+.vazio { font-size: 14px; color: #777; }
+
+@keyframes aparecer { from { transform: scale(0.96); opacity: 0.4; } to { transform: scale(1); opacity: 1; } }
+
+@media (max-width: 760px) {
+    .aplicacao { flex-direction: column; }
+    .menu-lateral { width: 100%; border-right: 0; border-bottom: 1px solid #e5e5e5; padding: 22px; }
+    .conteudo { padding: 24px 20px; }
+    .painel-sorteio { min-height: 330px; }
+    #resultado { font-size: clamp(32px, 8vw, 58px); }
+    .topo .botao-claro { font-size: 13px; padding: 10px; }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador de Temas | Debate Escolar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="aplicacao">
+        <aside class="menu-lateral">
+            <div class="marca">
+                <span class="etiqueta">DEBATE ESCOLAR</span>
+                <h1>Gerenciar temas</h1>
+                <p>Cadastre ou remova os assuntos do debate.</p>
+            </div>
+
+            <form id="formTema">
+                <label for="campoTema">Novo tema</label>
+                <input id="campoTema" type="text" placeholder="Digite um tema" maxlength="100" autocomplete="off" required>
+                <button type="submit" class="botao-escuro">+ Adicionar tema</button>
+            </form>
+
+            <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+
+            <div class="cabecalho-lista">
+                <h2>Temas cadastrados</h2>
+                <span id="totalTemas">0</span>
+            </div>
+            <ul id="listaGerenciamento" class="lista-gerenciamento"></ul>
+        </aside>
+
+        <main class="conteudo">
+            <header class="topo">
+                <div>
+                    <span class="etiqueta">SORTEADOR DE TEMAS</span>
+                    <h2>Debate político escolar</h2>
+                </div>
+                <button id="botaoTelaCheia" type="button" class="botao-claro">Tela cheia</button>
+            </header>
+
+            <section class="painel-sorteio" aria-live="polite">
+                <p class="legenda">TEMA SORTEADO</p>
+                <h3 id="resultado">Pronto para sortear</h3>
+                <p id="avisoResultado">Escolha um tema ao clicar no botão abaixo.</p>
+                <div class="acoes">
+                    <button id="botaoSortear" type="button" class="botao-escuro">Sortear tema</button>
+                    <button id="botaoReiniciar" type="button" class="botao-claro">Reiniciar sorteio</button>
+                </div>
+                <p id="contagem" class="contagem">0 temas disponíveis</p>
+            </section>
+
+            <section class="painel-temas">
+                <div class="titulo-temas">
+                    <h2>Temas do debate</h2>
+                    <span>Os temas já sorteados ficam marcados.</span>
+                </div>
+                <div id="listaTemas" class="etiquetas-temas"></div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
